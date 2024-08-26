@@ -199,7 +199,7 @@ void ThreadCache::ReleaseToCentralCache(FreeList* src, uint32_t cl, int N) {
 
   // We return prepackaged chains of the correct size to the central cache.
   // TODO: Use the same format internally in the thread caches?
-  int batch_size = Static::sizemap()->num_objects_to_move(cl);
+  int batch_size = Static::sizemap()->num_objects_to_move(cl); //zcx 这里获取方式和ListtooLong里面的一样
   while (N > batch_size) {
     void *tail, *head;
     src->PopRange(batch_size, &head, &tail);
